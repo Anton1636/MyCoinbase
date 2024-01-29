@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useState } from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import styled from 'styled-components'

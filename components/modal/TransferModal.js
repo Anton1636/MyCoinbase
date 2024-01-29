@@ -1,7 +1,12 @@
+'use client'
 import { useState } from 'react'
+import { TailSpin } from 'react-loader-spinner'
 import styled from 'styled-components'
+import CoinSelector from './CoinSelector'
+import Receive from './Receive'
+import Transfer from './Transfer'
 
-const TransferModal = () => {
+const TransferModal = ({ twTokens, sanityTokens, walletAddress }) => {
 	const [action, setAction] = useState('send')
 
 	const selectedStyle = {
@@ -10,6 +15,78 @@ const TransferModal = () => {
 
 	const unselectedStyle = {
 		border: '1px solid #282b2f',
+	}
+
+	const renderLogic = () => {
+		if (action === 'send') {
+			return (
+				<Transfer
+					setAction={setAction}
+					twTokens={twTokens}
+					sanityTokens={sanityTokens}
+					selectedToken={selectedToken}
+					walletAddress={walletAddress}
+				/>
+			)
+		} else if (action === 'receive') {
+			return (
+				<Receive
+					setAction={setAction}
+					selectedToken={selectedToken}
+					walletAddress={walletAddress}
+				/>
+			)
+		} else if (action === 'select') {
+			return (
+				<CoinSelector
+					setAction={setAction}
+					selectedToken={selectedToken}
+					setSelectedToken={setSelectedToken}
+					sanityTokens={sanityTokens}
+					twTokens={twTokens}
+					walletAddress={walletAddress}
+				/>
+			)
+		} else if (action === 'transferring') {
+			return (
+				<div
+					style={{
+						width: '100%',
+						height: '100%',
+						display: 'flex',
+						flexDirection: 'column',
+						justifyContent: 'center',
+						alignItems: 'center',
+						fontSize: '1.5rem',
+					}}
+				>
+					Transfer in progress...
+					<TailSpin
+						height='100'
+						width='100'
+						color='#3773f5'
+						ariaLabel='loading...'
+					/>
+				</div>
+			)
+		} else if (action === 'transferred') {
+			return (
+				<div
+					style={{
+						width: '100%',
+						height: '100%',
+						display: 'flex',
+						justifyContent: 'center',
+						alignItems: 'center',
+						fontSize: '2rem',
+						fontWeight: '600',
+						color: '#27ad75',
+					}}
+				>
+					Transfer complete
+				</div>
+			)
+		}
 	}
 
 	return (

@@ -12,15 +12,23 @@
     "@3rdweb/hooks": "^1.9.2",
     "@3rdweb/react": "^1.9.3",
     "@3rdweb/sdk": "^1.42.1",
+    "@sanity/client": "^6.11.3",
+    "@sanity/image-url": "^1.0.2",
+    "chart.js": "^4.4.1",
     "ethers": "^6.10.0",
     "next": "14.1.0",
-    "react": "^18",
+    "ng2-charts": "^5.0.4",
+    "react": "17",
     "react-chartjs-2": "^5.2.0",
-    "react-dom": "^18",
+    "react-dom": "17",
+    "react-loader-spinner": "^6.1.6",
     "react-modal": "^3.16.1",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {
+    "@babel/plugin-transform-private-methods": "^7.23.3",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
     "eslint": "^8",
     "eslint-config-next": "14.1.0"
   }

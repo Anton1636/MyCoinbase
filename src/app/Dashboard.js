@@ -1,10 +1,11 @@
+'use client'
 import { ThirdwebSDK } from '@3rdweb/sdk'
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Header from '../components/Header'
-import Main from '../components/Main'
-import Sidebar from '../components/Sidebar'
+import Header from '../../components/Header'
+import Main from '../../components/Main'
+import Sidebar from '../../components/Sidebar'
 
 const Dashboard = ({ address }) => {
 	const [twTokens, setTwTokens] = useState([])
@@ -32,7 +33,9 @@ const Dashboard = ({ address }) => {
 			const sdk = new ThirdwebSDK(
 				new ethers.Wallet(
 					process.env.NEXT_PUBLIC_METAMASK_KEY,
-					ethers.getDefaultProvider('https://goerli.infura.io/v3/')
+					ethers.getDefaultProvider(
+						'https://goerli.infura.io/v3/0c6e6bdfe78f44db9edc54c5a0e012c3'
+					)
 				)
 			)
 
